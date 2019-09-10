@@ -1,0 +1,41 @@
+steps:
+#step 1
+- name: 'gcr.io/cloud-builders/docker' 
+  entrypoint: 'bash'
+  args: [
+   '-c', 
+   'docker pull gcr.io/testproject-piyush/nodejsapp:v2 || exit 0'
+  ]
+#step 2
+- name: gcr.io/cloud-builders/docker
+  args: [
+   'build', 
+   '-t', 
+   'gcr.io/$testproject-piyush/nodejsapp:$v2',
+   '-t', 
+   'gcr.io/$testproject-piyush/nodejsapp:v2',
+   '.'
+  ]
+#step 3
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'k8s/']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=testcluster'
+#step 4
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+   'set', 
+   'image', 
+   'deployment', 
+   'nodejsapp', 
+   'nodejsapp=gcr.io/$testproject-piyush/nodejsapp:$v2'
+  ]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=testcluster'
+# push images to Google Container Registry with tags
+images: [
+   'gcr.io/$testproject-piyush/nodejsapp:$v2',
+   'gcr.io/$testproject-piyush/nodejsapp:v2'
+  ]
