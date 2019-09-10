@@ -29,13 +29,13 @@ steps:
    'image', 
    'deployment', 
    'nodejsapp', 
-   'nodejsapp=gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:$v2'
+   'nodejsapp=gcr.io/testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:$v2'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=testcluster'
 # push images to Google Container Registry with tags
 images: [
-   'gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:$v2',
-   'gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:v2'
+   'gcr.io/testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:$v2',
+   'gcr.io/testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:v2'
   ]
