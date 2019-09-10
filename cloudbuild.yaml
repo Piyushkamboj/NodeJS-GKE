@@ -36,6 +36,6 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=testcluster'
 # push images to Google Container Registry with tags
 images: [
-   'gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:$v3',
-   'gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:v3'
+   'gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:$v2',
+   'gcr.io/$testproject-piyush/nodejsapp@sha256:0a64087e9158110ec576d33042395edcda25ecff90717897225440848c6260a7:v2'
   ]
