@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nodejsapp
+  name: nodejsapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nodejsapp
+  template:
+    metadata:
+      labels:
+        run: nodejsapp
+    spec:
+      containers:
+      - image: gcr.io/testproject-piyush/nodejsapp:v1
+        name: nodejsapp
+        ports:
+        - containerPort: 3000
