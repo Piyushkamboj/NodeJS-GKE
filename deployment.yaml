@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nodejsapp
+  name: nodejsapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nodejsapp
+  template:
+    metadata:
+      labels:
+        run: nodejsapp
+    spec:
+      containers:
+      - image: gcr.io/testproject-piyush/nodejsapp:v1
+        name: nodejsapp
+        ports:
+        - containerPort: 3000
+		
+			
+---------------------------------------------------------------------------------------
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nodejsapp
+spec:
+  selector:
+     run: nodejsapp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: LoadBalancer
