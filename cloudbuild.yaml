@@ -11,9 +11,9 @@ steps:
   args: [
    'build', 
    '-t', 
-   'gcr.io/testproject-piyush/nodejsapp:v1',
+   'gcr.io/testproject-piyush/helloHcl:v1',
    '-t', 
-   'gcr.io/testproject-piyush/nodejsapp:v1',
+   'gcr.io/testproject-piyush/helloHcl:v1',
    '.'
   ]
 #step 3
@@ -29,13 +29,13 @@ steps:
    'image', 
    'deployment', 
    'nodejsapp', 
-   'nodejsapp=gcr.io/testproject-piyush/nodejsapp:v1'
+   'nodejsapp=gcr.io/testproject-piyush/helloHcl:v1'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=testcluster'
 # push images to Google Container Registry with tags
 images: [
-   'gcr.io/testproject-piyush/nodejsapp:v1',
-   'gcr.io/testproject-piyush/nodejsapp:v1'
+   'gcr.io/testproject-piyush/helloHcl:v1',
+   'gcr.io/testproject-piyush/helloHcl:v1'
   ]
