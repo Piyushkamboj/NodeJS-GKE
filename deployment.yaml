@@ -15,7 +15,7 @@ spec:
         run: nodejsapp
     spec:
       containers:
-      - image: gcr.io/testproject-piyush/nodejsapp:v1
+      - image: gcr.io/testproject-piyush/hellohcl:v1
         name: nodejsapp
         ports:
         - containerPort: 3000
